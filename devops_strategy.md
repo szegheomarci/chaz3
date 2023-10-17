@@ -1,4 +1,33 @@
-# DevOps Strategy
+# ChaZ3 App DevOps Strategy
+
+## Tools used in ChaZ3 App  
+
+Containerization:  
+<img src="https://landscape.cncf.io/logos/docker-member.svg" height="30" /> Docker
+
+**App Definition and Development**  
+Database: 
+ - <img src="https://landscape.cncf.io/logos/mongo-db.svg" height="30" /> MongoDB
+ - <img src="https://landscape.cncf.io/logos/my-sql.svg" height="30" /> MySQL  
+
+Streaming & Messaging:
+ - <img src="https://landscape.cncf.io/logos/kafka.svg" height="30" /> Kafka
+
+Application Definition & Image Build:
+ - <img src="https://landscape.cncf.io/logos/helm.svg" height="30" /> Helm
+
+Continuous Integration & Delivery:
+ - <img src="https://landscape.cncf.io/logos/jenkins.svg" height="30" /> Jenkins
+ - <img src="https://landscape.cncf.io/logos/git-hub-actions.svg" height="30" /> GitHub Actions
+
+**Orchestration & Management**  
+Scheduling & Orchestration:
+* <img src="https://landscape.cncf.io/logos/kubernetes.svg" height="30" /> Kubernetes
+
+**Provisioning**  
+Automation & Configuration:
+* <img src="https://landscape.cncf.io/logos/terraform.svg" height="30" /> Terraform
+* <img src="https://landscape.cncf.io/logos/ansible.svg" height="30" /> Ansible
 
 ## Microservice CI/CD
 The source code is kept in a git repository. Development is restricted to the main branch, no feature branches are used according to modern CI/CD philosophy.
