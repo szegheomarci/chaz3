@@ -70,10 +70,10 @@ The GUI is not published yet.
 
 Services can be accessed as listed in the table below.
 
-Service | car-ads | car-db-loader | ad-aggregator | chaz3-gui
--|-|-|-|-
-language: | java | python | python | java+Spring+Thymeleaf
-Source code: | [git](https://github.com/szegheomarci/car-ads) | [git](https://github.com/szegheomarci/db-loader) | gitlink | [git](https://github.com/szegheomarci/chaz3-gui)
-Reviews: | [gerrit](https://review.gerrithub.io/q/project:szegheomarci/car-ads) | gerrit link | gerrit link | gerrit link
-Docker: | docker link | docker link | docker link | docker link
-Helm: | helm link | helm link | helm link | helm link
+Service | Language | Source code | Reviews | Docker | Helm
+-|-|-|-|-|-
+**car-ads** | java | [git](https://github.com/szegheomarci/car-ads) | [gerrit](https://review.gerrithub.io/q/project:szegheomarci/car-ads) | docker link | helm link
+**car-db-loader** | python |  [git](https://github.com/szegheomarci/db-loader) | gerrit link | docker link | helm link
+**ad-aggregator** | python | gitlink | gerrit link | docker link | helm link
+**chaz3-gui** | java+Spring+Thymeleaf | [git](https://github.com/szegheomarci/chaz3-gui) | gerrit link | docker link | helm link
+  
