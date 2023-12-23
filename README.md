@@ -10,9 +10,12 @@
 <!-- TOC end -->
 # ChaZ3 App
 
-Chaz3 is a car availability tracker application that I have configured for my own use to track BMW Z3 availability (hence the name). It collects data from classifieds and processes them to make it useful to answer analytical questions. (How many cars are available, what is there average price considering customizeable filtering.)
+Chaz3 is a car availability tracker application that I have configured for my own use to track BMW Z3 availability (hence the name). It collects data from classifieds and processes them to make it useful to answer analytical questions. (How many cars are available, how has the average price changed over the years, considering color, engine, manufacturing date and other filtering options.)
 
-This is my hobby project that I develop as a practical excercise accompanying my DevOps studies. It is very useful to test and demonstrate concepts and practices. For these reasons the architecture is over-complicated in some cases. The DevOps strategy is decribed in [another document](devops_strategy.md).
+This is my hobby project that I develop as a practical excercise accompanying my DevOps studies. It is very useful to test and demonstrate concepts and practices. For these reasons the architecture and other solutions are over-complicated in some cases. The DevOps strategy is decribed in [this other document](devops_strategy.md).
+
+## Deployment
+The application can be deployed in various ways. This repository is going to host the description to some of the options.
 
 ## Architecture
 ChaZ3 is built from microservices. For easier understanding, the services can be assigned to the following functional layers:
@@ -22,9 +25,9 @@ ChaZ3 is built from microservices. For easier understanding, the services can be
  * Presentation
  * Support functions
 
-These services can be deployed in various ways (standalone docker images, hosted minikube, AKS, etc) and some of the services are substitutable.
-The following diagram gives an overview of the services:
 
+The following diagram gives an overview of the services:  
+<img src="images/architecture.drawio.svg" />
  
 ## Data collection
 Data collection is managed by the following services:
@@ -32,11 +35,11 @@ Data collection is managed by the following services:
  * car-db-loader
 
 ### car-ads
-Car-ads can be configured to collect data from car adveretisement sites. The collected data can be output in many ways, ChaZ3 uses a Kafka topic to which this service broadcasts.  
+Car-ads can be configured to collect data from car adveretisement sites. The collected data can be output in many ways, including files and Kafka topics to which this service broadcasts.  
 It is typically enough to run this app once a day.
 
 ### car-db-loader
-Car-db-loader subscribes to the Kafka topic where new content is published. It loads the data in a SQL database and also performs related updates.
+Car-db-loader reads the collected data from a file or a Kafka topic. It loads the data in a SQL database and also performs related updates.
 
 ## Processing
 Processing tasks are handled by the ad-aggregator service.
