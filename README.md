@@ -21,7 +21,7 @@ Chaz3 is a car availability tracker application that I have configured for my ow
 This is **my hobby project** that I develop as a practical excercise accompanying my **DevOps** studies. It is very useful to test and demonstrate concepts and practices. For these reasons the architecture and other solutions are over-complicated in some cases. The **DevOps strategy is decribed in [this other document](devops_strategy.md)**.
 
 ## Deployment
-The application can be deployed in various ways. This repository is going to host the description to some of the options.
+The application can be deployed in various ways. This repository is going to host the description to some of the options. Read the details in [this other document](deployments/README.md).
 
 ## Architecture
 ChaZ3 is built from microservices. For easier understanding, the services can be assigned to the following functional layers:

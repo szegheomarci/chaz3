@@ -19,7 +19,7 @@ For whatever reason, one of my new VMs came up without network connection. The p
 `ip a`  
 If there is no IP address, enter  
 `nmcli device status`  
-to check the `STATE` of the `Connection`. If it is not connected, check if autoconnection is configured to `yes`:  
+to check the `STATE` of the `Device` (*enp0s3*). If it is not connected, check if autoconnection is configured to `yes`:  
 `nmcli con show enp0s3 | grep connection.autoconnect`  
 If `no`, than reconfigure:  
 `nmcli con mod enp0s3 connection.autoconnect yes`  
@@ -40,3 +40,5 @@ shutdown -r now
 
 ## Prepare the environment
 The server will need to be running docker, so this must be installed. But instead of the manual install, let's use Ansible.
+
+### Add public key
