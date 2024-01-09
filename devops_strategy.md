@@ -5,24 +5,33 @@ ChaZ3 is a cloud native application, assembled from a set of microservices. Micr
 
 
 ## Microservice CI/CD
-The microservice source code is kept in a git repository. **Trunk based development** is followed, meaning there are no feature branches, only the main branch.
-Code reviews are performed in gerrit.
+The microservice source code is kept in a **git** repository. **Trunk-based development** is followed, meaning there are no feature branches, only the main branch. This is the Single Source of Truth.  
+Deliveries are Docker containers.
 
-Jenkins is used as build automation tool. Jenkins jobs are defined as code, stored in the git repository.
+Code reviews are performed in **gerrit**.
 
-A **verification Jenkins job** is triggered by new pachsets.  
+**Jenkins** is used as build/release automation tool. I run my own Jenkins server, it is nor publicly available.
+
+## Jenkins jobs
+Jenkins jobs are defined as code, stored in the git repository.
+
+### Verification
+A verification Jenkins job is triggered by new pachsets.  
 The verification performs relevant checks and unit testing if applicable.  
 A docker image is also built, and is tagged with the unique <software_version>-verif<build_number>, e.g. `myservice:1.2.5-verif152`. This is however cleaned up after the build.
 
-A **drop Jenkins job** is triggered by gerrit submit.  
+### Drop
+A drop Jenkins job is triggered by gerrit submit.  
 This job performs the same verification and testing as in verification, as this new commit is
 cherry picked to the origin HEAD. This is necessary as the origin HEAD might have progressed since the last verification of the patchset.  
 The docker image tag is made up from the service version and a sequence number that increases with every commit by one since the last release, e.g. `myservice:1.2.5-4`. The generated docker image is strored in the github packages docker registry, as these image versions
-are not yet considered as release grade. If the build and storage are successful, the commit in the git repository is also tagged with this image version.
+are not yet considered as release grade. Retention of these images is handled by github actions. 
+If the build and storage are successful, the commit in the git repository is also tagged with the image version.
 
-The **release Jenkins job** is triggered manually.  
+### Release
+The release Jenkins job is triggered manually.  
 It takes the tag marking the docker image version as a parameter, fetches the image from the github packages docker registry
-and publishes it on Docker Hub.
+and publishes it on Docker Hub. The version tag is cleaned of the build number.
 A new commit is generated that increases the patch version number of the service and also adds tags the git repository.
 
 This process ensures that the microservice remains in a releasable state, and release candidates can go through further checking.
@@ -48,7 +57,7 @@ Application Definition & Image Build:
 Continuous Integration & Delivery:
  - <img src="https://upload.wikimedia.org/wikipedia/commons/4/4d/Gerrit_icon.svg" height="30" /> Gerrit
  - <img src="https://landscape.cncf.io/logos/jenkins.svg" height="30" /> Jenkins
- <!-- - <img src="https://landscape.cncf.io/logos/git-hub-actions.svg" height="30" /> GitHub Actions -->
+- <img src="https://landscape.cncf.io/logos/git-hub-actions.svg" height="30" /> GitHub Actions
 
 **Orchestration & Management**  
 Scheduling & Orchestration:

@@ -10,9 +10,15 @@
 <!-- TOC end -->
 # ChaZ3 App
 
-Chaz3 is a car availability tracker application that I have configured for my own use to track BMW Z3 availability (hence the name). It collects data from classifieds and processes them to make it useful to answer analytical questions. (How many cars are available, how has the average price changed over the years, considering color, engine, manufacturing date and other filtering options.)
+Chaz3 is a car availability tracker application that I have configured for my own use to track BMW Z3 availability (hence the name). It collects data from classifieds and processes them to make it useful to answer analytical questions, such as:
+ * How many cars were advertized each week?
+ * How has the average price changed over the years?
+ * ... (Other graphs and maps can be created based on the data collected over the years.)
 
-This is my hobby project that I develop as a practical excercise accompanying my DevOps studies. It is very useful to test and demonstrate concepts and practices. For these reasons the architecture and other solutions are over-complicated in some cases. The DevOps strategy is decribed in [this other document](devops_strategy.md).
+ The results can be filtered considering color, engine, manufacturing date and other options.
+ Basically I did not want to rely on old wifes' tales on when is the good time to buy a roadster, in season, before season, or after season. (When is the season anyway???) Also, I see it for myself when the 'prices will only go up from now'.
+
+This is **my hobby project** that I develop as a practical excercise accompanying my **DevOps** studies. It is very useful to test and demonstrate concepts and practices. For these reasons the architecture and other solutions are over-complicated in some cases. The **DevOps strategy is decribed in [this other document](devops_strategy.md)**.
 
 ## Deployment
 The application can be deployed in various ways. This repository is going to host the description to some of the options.
